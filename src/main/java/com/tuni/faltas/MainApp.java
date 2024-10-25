@@ -15,6 +15,32 @@ public class MainApp extends Application {
 
     private static Scene scene;
 
+    @FXML
+    Label NombreLabel;
+    
+    @FXML
+    Label ApellidosLabel;
+    
+    @FXML
+    Label FaltasLabel;
+    
+    @FXML
+    TextField NombreTextField;
+    
+    @FXML
+    TextField ApellidosTextField;
+    
+    @FXML
+    TextField FaltasTextField;
+    
+    @FXML
+    ComboBox CursosComboBox;
+    
+    @FXML
+    ComboBox AsignaturasComboBox;
+    
+    @FXML
+    ComboBox AlumnosComboBox;
 
     @Override
     public void start(Stage stage) throws IOException {
