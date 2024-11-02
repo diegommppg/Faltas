@@ -20,16 +20,6 @@
             <artifactId>javafx-fxml</artifactId>
             <version>13</version>
         </dependency>
-        <dependency>
-        	<groupId>com.dmm</groupId>
-        	<artifactId>primer-javafx</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-        	<groupId>com.pablo</groupId>
-        	<artifactId>miprimerfx</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 	
     <build>
