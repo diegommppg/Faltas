@@ -17,26 +17,16 @@ import java.util.ResourceBundle;
 /**
  * JavaFX App
  */
-public class MainApp extends Application implements Initializable {
+public class MainApp extends Application{
 
 	private static Scene scene;
 
-	@FXML
-	private ComboBox<String> cbCursos;
-	@FXML
-	private ComboBox<String> cbAsignaturas;
-	
-	private String[] cursos = {"1ºDAM", "1ºDAW", "2ºDAM", "2ºDAW"};
-	
-	@FXML
-	private ComboBox<String> cbAlumnos;
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		scene = new Scene(loadFXML("principal"), 640, 480);
+		scene = new Scene(loadFXML("alumnos"), 640, 480);
 		stage.setScene(scene);
 		stage.show();
-
 	}
 
 	static void setRoot(String fxml) throws IOException {
@@ -49,14 +39,10 @@ public class MainApp extends Application implements Initializable {
 	}
 
 	public static void main(String[] args) {
+	
 		launch();
-	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-			
-		cbCursos.getItems().addAll(cursos);
 		
 	}
+
 
 }
