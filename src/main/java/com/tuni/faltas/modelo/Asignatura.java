@@ -2,20 +2,24 @@ package com.tuni.faltas.modelo;
 
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Asignatura {
 	String nombre;
 	
 	int horasTotales;
 	
-	ArrayList<Alumno> alumnos;
+	ObservableList<Alumno> alumnos = FXCollections.observableArrayList();
 
-	public Asignatura(String nombre, int horasTotales, ArrayList<Alumno> alumnos) {
+	//constructor
+	public Asignatura(String nombre, int horasTotales) {
 		super();
 		this.nombre = nombre;
 		this.horasTotales = horasTotales;
-		this.alumnos = alumnos;
 	}
-
+	
+	//getters y setters
 	public String getNombre() {
 		return nombre;
 	}
@@ -32,14 +36,20 @@ public class Asignatura {
 		this.horasTotales = horasTotales;
 	}
 
-	public ArrayList<Alumno> getAlumnos() {
+	public ObservableList<Alumno> getAlumnos() {
 		return alumnos;
 	}
 
-	public void setAlumnos(ArrayList<Alumno> alumnos) {
+	public void setAlumnos(ObservableList<Alumno> alumnos) {
 		this.alumnos = alumnos;
+	}
+
+	@Override
+	public String toString() {
+		return nombre;
 	}
 	
 	
-
+	
+	
 }
