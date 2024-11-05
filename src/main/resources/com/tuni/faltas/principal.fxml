@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:controller="com.tuni.faltas.PrincipalController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuni.faltas.PrincipalController">
+   <children>
+      <Label layoutX="20.0" layoutY="44.0" prefHeight="30.0" prefWidth="106.0" text="Nombre" />
+      <TextField fx:id="txtNombre" layoutX="92.0" layoutY="46.0" />
+      <Label layoutX="20.0" layoutY="96.0" prefHeight="26.0" prefWidth="106.0" text="Apellidos" />
+      <TextField fx:id="txtApellidos" layoutX="92.0" layoutY="97.0" />
+      <Label layoutX="20.0" layoutY="145.0" prefHeight="30.0" prefWidth="106.0" text="Faltas" />
+      <TextField fx:id="txtFaltas" layoutX="92.0" layoutY="147.0" />
+      <ComboBox fx:id="comboBoxCursos" layoutX="391.0" layoutY="46.0" prefWidth="150.0" promptText="CURSOS" />
+      <ComboBox fx:id="comboBoxAsignaturas" layoutX="391.0" layoutY="96.0" prefWidth="150.0" promptText="ASIGNATURAS" />
+      <ComboBox fx:id="comboBoxAlumnos" layoutX="391.0" layoutY="147.0" prefWidth="150.0" promptText="ALUMNOS" />
+      <Button fx:id="eliminarAlumno" layoutX="91.0" layoutY="261.0" mnemonicParsing="false" onKeyPressed="#initialize" prefHeight="30.0" prefWidth="150.0" text="ELIMINAR ALUMNO" />
+      <Button fx:id="guardarCambios" layoutX="391.0" layoutY="261.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="GUARDAR CAMBIOS" />
+   </children>
+</AnchorPane>
