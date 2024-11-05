@@ -46,7 +46,7 @@ public class InterfazCursosController implements Initializable {
 	@FXML
 	//Guardamos cambios
 	private void guardarCambios() {
-      String nombreCurso = nombre.getText();
+      String nombreCurso = nombre.getText().trim();
       String cursoSeleccionado = comboCursos.getValue();
       if (!nombreCurso.isEmpty()) {
           if (cursoSeleccionado != null) {
