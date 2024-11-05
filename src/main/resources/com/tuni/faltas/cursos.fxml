@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="bottonGuardar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuni.faltas.InterfazCursos">
+   <children>
+      <Label id="labelNombre" fx:id="labelNombre" layoutX="46.0" layoutY="54.0" prefHeight="31.0" prefWidth="90.0" text="NOMBRE" />
+      <TextField id="textNombre" fx:id="textNombre" layoutX="151.0" layoutY="57.0" />
+      <Button id="buttonEliminar" fx:id="buttonEliminar" layoutX="46.0" layoutY="208.0" mnemonicParsing="false" onAction="#eliminarCurso" prefHeight="31.0" prefWidth="117.0" text="ELIMINAR CURSO" />
+      <Button id="buttonAdd" fx:id="buttonAdd" layoutX="219.0" layoutY="208.0" mnemonicParsing="false" onAction="#abrirVentanaAsignatura" prefHeight="31.0" prefWidth="150.0" text="AÑADIR ASIGNATURA" />
+      <Button id="buttonGuardar" fx:id="buttonGuardar" layoutX="423.0" layoutY="208.0" mnemonicParsing="false" onAction="#guardarCambios" prefHeight="31.0" prefWidth="138.0" text="GUARDAR CAMBIOS" />
+      <ComboBox id="comboCurso" fx:id="comboCurso" layoutX="369.0" layoutY="57.0" onAction="#crearCurso" prefWidth="150.0" />
+   </children>
+</AnchorPane>
