@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuni.faltas.PrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuni.faltas.PrincipalController">
    <children>
       <GridPane layoutY="-6.0" prefHeight="400.0" prefWidth="611.0">
         <columnConstraints>
@@ -35,9 +35,9 @@
             <TextField fx:id="NombreTextField" prefHeight="26.0" prefWidth="138.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <TextField fx:id="ApellidosTextField" prefHeight="26.0" prefWidth="138.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <TextField fx:id="FaltasTextField" prefHeight="26.0" prefWidth="138.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ComboBox fx:id="CursosComboBox" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <ComboBox fx:id="AsignaturasComboBox" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <ComboBox fx:id="AlumnosComboBox" onAction="#cambio" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ComboBox fx:id="CursosComboBox" onAction="#mostrarAsignaturas" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ComboBox fx:id="AsignaturasComboBox" onAction="#mostrarAlumnos" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ComboBox fx:id="AlumnosComboBox" onAction="#mostrarDatosAlumno" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <Button fx:id="EliminarAlumnoButton" mnemonicParsing="false" onAction="#eliminar" prefHeight="26.0" prefWidth="138.0" text="Eliminar Alumno" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Button fx:id="GuardarCambiosButton" mnemonicParsing="false" onAction="#GuardarCambios" prefHeight="26.0" prefWidth="146.0" text="Guardar Cambios" GridPane.columnIndex="4" GridPane.rowIndex="5" />
          </children>

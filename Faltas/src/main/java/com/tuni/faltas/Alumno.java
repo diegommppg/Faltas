@@ -36,4 +36,9 @@ public class Alumno {
 		this.faltas = faltas;
 	}
 
+    @Override
+    public String toString() {
+        return nombre + " " + apellidos;
+    }
+	
 }

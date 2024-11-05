@@ -1,4 +1,4 @@
-package com.tuni.faltas;
+	package com.tuni.faltas;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,13 +14,8 @@ import javafx.scene.control.TextField;
 
 
 public class PrincipalController implements Initializable {
-	
-	//Creo un array al que añadir los alumnos
-	
-	ArrayList<Alumno> alumnos = new ArrayList<>();
 
 	//Campos vinculados a la interfaz principal a continuación
-	
 	//Labels
     @FXML
     Label NombreLabel;
@@ -50,59 +45,125 @@ public class PrincipalController implements Initializable {
     
     //Comboboxes
 	@FXML
-    private ComboBox<String> CursosComboBox;
+    private ComboBox<Curso> CursosComboBox;
     
     @FXML
-    private ComboBox<String> AsignaturasComboBox;
+    private ComboBox<Asignatura> AsignaturasComboBox;
     
     @FXML
-    private ComboBox<String> AlumnosComboBox;
+    private ComboBox<Alumno> AlumnosComboBox;
 	
     //Método que hace que al iniciar la interfaz, añadiendo valores al combobox y seleccionando por defecto un alumno
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		CursosComboBox.getItems().addAll("1DAM", "2DAM", "1DAW", "2DAW");
-		CursosComboBox.getSelectionModel().select("1DAM");
-		
-		AsignaturasComboBox.getItems().addAll("SGEM", "DESIN", "PMDM", "EIE", "PSPR", "ADT");
-		AsignaturasComboBox.getSelectionModel().select("SGEM");
-		
 		Alumno Rodo = new Alumno("Rodolfo", "Díaz", 6);
 		Alumno Luis = new Alumno("Luis", "Iturrioz", 10);
 		
-		alumnos.add(Rodo);
-		alumnos.add(Luis);
+		ArrayList<Asignatura> asignaturas1DAM = new ArrayList<>();
+		ArrayList<Alumno> aSisin = new ArrayList<>();
+		aSisin.add(new Alumno("Rodolfo", "Díaz", 6));
+		asignaturas1DAM.add(new Asignatura("SiSin" ,aSisin));
+		ArrayList<Alumno> aProg = new ArrayList<>();
+		aProg.add(new Alumno("Rodolfo", "Díaz", 6));
+		asignaturas1DAM.add(new Asignatura("Programacion", aProg));
+		ArrayList<Alumno> aBadat = new ArrayList<>();
+		aBadat.add(new Alumno("Rodolfo", "Díaz", 6));
+		asignaturas1DAM.add(new Asignatura("BADAT", aBadat));
+		ArrayList<Alumno> aEndes = new ArrayList<>();
+		aEndes.add(new Alumno("Rodolfo", "Díaz", 6));
+		asignaturas1DAM.add(new Asignatura("ENDES", aEndes));
+		ArrayList<Alumno> aFol = new ArrayList<>();
+		aFol.add(new Alumno("Rodolfo", "Díaz", 6));
+		asignaturas1DAM.add(new Asignatura("FOL", aFol));
+		ArrayList<Alumno> aMarcas = new ArrayList<>();
+		aMarcas.add(new Alumno("Rodolfo", "Díaz", 6));
+		asignaturas1DAM.add(new Asignatura("Marcas", aMarcas));
 		
-		AlumnosComboBox.getItems().addAll(Rodo.getNombre() + " " + Rodo.getApellidos());
-		AlumnosComboBox.getItems().addAll(Luis.getNombre() + " " + Luis.getApellidos());
-		AlumnosComboBox.getSelectionModel().select("Rodolfo Diaz");
-		NombreTextField.setText(Rodo.getNombre());
-		ApellidosTextField.setText(Rodo.getApellidos());
-		FaltasTextField.setText(Integer.toString(Rodo.getFaltas()));
+		ArrayList<Asignatura> asignaturas2DAM = new ArrayList<>();
+		ArrayList<Alumno> aSGem = new ArrayList<>();
+		aSGem.add(new Alumno("Luis", "Iturrioz", 10));
+		asignaturas2DAM.add(new Asignatura("SGEM", aSGem));
+		ArrayList<Alumno> aDesin = new ArrayList<>();
+		aDesin.add(new Alumno("Luis", "Iturrioz", 10));
+		asignaturas2DAM.add(new Asignatura("DESIN", aDesin));
+		ArrayList<Alumno> aPMDM = new ArrayList<>();
+		aPMDM.add(new Alumno("Luis", "Iturrioz", 10));
+		asignaturas2DAM.add(new Asignatura("PMDM", aPMDM));
+		ArrayList<Alumno> aEIE = new ArrayList<>();
+		aEIE.add(new Alumno("Luis", "Iturrioz", 10));
+		asignaturas2DAM.add(new Asignatura("EIE", aEIE));
+		ArrayList<Alumno> aPSPR = new ArrayList<>();
+		aPSPR.add(new Alumno("Luis", "Iturrioz", 10));
+		asignaturas2DAM.add(new Asignatura("PSPR", aPSPR));
+		ArrayList<Alumno> aADT = new ArrayList<>();
+		aADT.add(new Alumno("Luis", "Iturrioz", 10));
+		asignaturas2DAM.add(new Asignatura("ADT", aADT));
+		
+		Curso PDAM = new Curso("1DAM", asignaturas1DAM);
+		Curso SDAM = new Curso("2DAM", asignaturas2DAM);
+		
+		CursosComboBox.getItems().addAll(PDAM);
+		CursosComboBox.getItems().addAll(SDAM);
+		
 	}
+
 
 	//Método que se encarga de comprobar si el alumno cuyos datos se quieren guardar ya existe en el programa o si ha de añadirse,
 	//en caso de ya existir se actualiza el número de faltas
 	@FXML
 	public void GuardarCambios() {
 		
-		String nombre = NombreTextField.getText();
-		String apellido = ApellidosTextField.getText();
-		int faltas = Integer.parseInt(FaltasTextField.getText());
-		Alumno al = new Alumno(nombre, apellido, faltas);
-		
 		boolean contained = false;
 		
+		String nombre = NombreTextField.getText();
+		String apellidos = ApellidosTextField.getText();	
+		int faltas = Integer.parseInt(FaltasTextField.getText());
+        Alumno nuevoAlumno = new Alumno(nombre, apellidos, faltas);
+        ArrayList<Alumno> alumnos = AsignaturasComboBox.getValue().getAlumnos();
+		
 		for (Alumno a: alumnos) {
-			if ((a.getNombre().equals(nombre)) && (a.getApellidos().equals(apellido))) {
-				a.setFaltas(faltas);
+			if ((a.getNombre().equals(nombre)) && (a.getApellidos().equals(apellidos))) {
 				contained = true;
+				AlumnosComboBox.getValue().setFaltas(faltas);
 			} 
 		}
-			
+		
 		if (!contained) {
-			alumnos.add(al);
-			AlumnosComboBox.getItems().addAll(al.getNombre() + " " + al.getApellidos());
+			alumnos.add(nuevoAlumno);
+			AlumnosComboBox.getItems().clear();
+			AlumnosComboBox.getItems().addAll(alumnos);
+		}
+		
+	}
+	
+	
+	@FXML
+	public void mostrarAsignaturas() {
+        Curso selectedCurso = CursosComboBox.getValue();
+        if (selectedCurso != null) {
+        	AsignaturasComboBox.getItems().clear();
+        	AsignaturasComboBox.getItems().addAll(selectedCurso.getAsignaturas());
+        	AsignaturasComboBox.getSelectionModel().clearSelection(); 
+        }
+	}
+	
+	@FXML
+	public void mostrarAlumnos() {
+        Asignatura selectedAsignatura = AsignaturasComboBox.getValue();
+        if (selectedAsignatura != null) {
+            AlumnosComboBox.getItems().clear(); 
+            AlumnosComboBox.getItems().addAll(selectedAsignatura.getAlumnos()); 
+            AlumnosComboBox.getSelectionModel().clearSelection(); 
+        }
+	}
+	
+	@FXML
+	public void mostrarDatosAlumno() {
+		Alumno selectedAlumno = AlumnosComboBox.getValue();
+		if(selectedAlumno != null) {
+			NombreTextField.setText(selectedAlumno.getNombre());
+			ApellidosTextField.setText(selectedAlumno.getApellidos());
+			FaltasTextField.setText(Integer.toString(selectedAlumno.getFaltas()));
 		}
 	}
 	
@@ -110,43 +171,28 @@ public class PrincipalController implements Initializable {
 	@FXML
 	public void eliminar() {
 		
-		boolean contained = false;
-		
 		String nombre = NombreTextField.getText();
 		String apellido = ApellidosTextField.getText();
-		int faltas = Integer.parseInt(FaltasTextField.getText());
 		NombreTextField.clear();
 		ApellidosTextField.clear();
 		FaltasTextField.clear();
-		Alumno al = new Alumno(nombre, apellido, faltas);
+        ArrayList<Alumno> alumnos = AsignaturasComboBox.getValue().getAlumnos();
+		
+		Alumno alumnoEliminar = null;
 		
 		for (Alumno a: alumnos) {
 			if ((a.getNombre().equals(nombre)) && (a.getApellidos().equals(apellido))) {
-				contained = true;
+				alumnoEliminar = a;
 			} 
 		}
 		
-		if (contained) {
-			alumnos.remove(al);
-			AlumnosComboBox.getItems().remove(al.getNombre() + " " + al.getApellidos());
+		if (alumnoEliminar != null) {
+			alumnos.remove(alumnoEliminar);
+			AlumnosComboBox.getItems().clear();
+			AlumnosComboBox.getItems().addAll(alumnos);
 		}
+		
+		
 	}
-	
-	//Se encarga de poner los valores de el alumno seleccionado en el combobox en los respectivos textfields
-	@FXML
-	public void cambio() {
-		for (Alumno a: alumnos) {
-			if ((a.getNombre() + " " + a.getApellidos()).equals(AlumnosComboBox.getValue())) {
-				NombreTextField.setText(a.getNombre());
-				ApellidosTextField.setText(a.getApellidos());
-				FaltasTextField.setText(Integer.toString(a.getFaltas()));
-			}
-		}
-	}
-	
-	
-	
-	
-
     
 }
