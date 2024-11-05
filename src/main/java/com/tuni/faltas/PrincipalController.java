@@ -1,5 +1,7 @@
 package com.tuni.faltas;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
@@ -20,9 +22,9 @@ public class PrincipalController implements Initializable {
 	private ComboBox<String> cbAsignaturas;
 
 	@FXML
-	private ComboBox<String> cbAlumnos;
+	private ComboBox<Alumno> cbAlumnos;
 
-	private ArrayList<Alumno> alumnos = new ArrayList<>();
+	private ObservableList<Alumno> alumnos = FXCollections.observableArrayList();
 
 	@FXML
 	private TextField tfNombre;
@@ -41,24 +43,109 @@ public class PrincipalController implements Initializable {
 
 		alumnos.add(new Alumno("Rodrigo", "Cid Colino", 4));
 		alumnos.add(new Alumno("Otro", "Alumno Anonimo", 7));
-		cbAlumnos.getItems().addAll(alumnos.get(0).getNombre(), alumnos.get(1).getNombre());
+
+		cbAlumnos.setItems(alumnos);
 
 	}
 
 	@FXML
 	public void cambiarAlumno() {
-		
-		String nombreSeleccionado = cbAlumnos.getValue();
+
+		Alumno alumnoSeleccionado = cbAlumnos.getValue();
 
 		for (Alumno alu : alumnos) {
-			if (alu.getNombre().equals(nombreSeleccionado)) {
-			
+
+			if (alu.equals(alumnoSeleccionado)) {
+
 				tfNombre.setText(alu.getNombre());
 				tfApellidos.setText(alu.getApellidos());
 				tfFaltas.setText(String.valueOf(alu.getFaltas()));
-				break;
 			}
 		}
 
 	}
+
+	@FXML
+	public void guardar() {
+
+		// String nombreSeleccionado = cbAlumnos.getValue();
+
+		Alumno a = new Alumno(tfNombre.getText(), tfApellidos.getText(), Integer.parseInt(tfFaltas.getText()));
+		if (checkExiste(a)) {
+
+			for (Alumno alu : alumnos) {
+
+				if (alu.getNombre().equals(a.getNombre())) {
+
+					alu.setFaltas(Integer.parseInt(tfFaltas.getText()));
+
+				}
+			}
+
+		}
+
+		else {
+
+			Alumno nuevoAlumno = new Alumno(tfNombre.getText(), tfApellidos.getText(),
+					Integer.parseInt(tfFaltas.getText()));
+			alumnos.add(nuevoAlumno);
+
+		}
+
+	}
+
+	@FXML
+	public void borrar() {
+
+		Alumno a = new Alumno(tfNombre.getText(), tfApellidos.getText(), Integer.parseInt(tfFaltas.getText()));
+		if (checkExiste(a)) {
+
+			for (Alumno alu : alumnos) {
+
+				if (alu.getNombre().equals(a.getNombre())) {
+
+					alumnos.remove(alu);
+
+					if (!alumnos.isEmpty()) {
+						tfNombre.setText(alumnos.get(0).getNombre());
+						tfApellidos.setText(alumnos.get(0).getApellidos());
+						tfFaltas.setText(String.valueOf(alumnos.get(0).getFaltas()));
+					} else {
+
+						tfNombre.setText("");
+						tfApellidos.setText("");
+						tfFaltas.setText("");
+
+					}
+
+				}
+			}
+
+		}
+
+		else {
+
+			tfNombre.setText("");
+			tfApellidos.setText("");
+			tfFaltas.setText("");
+
+		}
+
+	}
+
+	private boolean checkExiste(Alumno a) {
+
+		boolean existe = false;
+
+		for (Alumno alu : alumnos) {
+
+			if ((a.getNombre().equals(alu.getNombre())) && (a.getApellidos().equals(alu.getApellidos()))) {
+
+				existe = true;
+			}
+		}
+
+		return existe;
+	}
+
 }
