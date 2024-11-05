@@ -13,25 +13,20 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>13</version>
+            <version>23</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>13</version>
+            <version>23</version>
         </dependency>
         <dependency>
-        	<groupId>com.samuel</groupId>
-        	<artifactId>Ejercicio_DesinT2</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-        	<groupId>com.samuel</groupId>
-        	<artifactId>PrimerProyectoMaven_DesinT2</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
+            <groupId>com.afr</groupId>
+            <artifactId>primer-javafx</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
-	
+    
     <build>
         <plugins>
             <plugin>
@@ -48,11 +43,10 @@
                 <version>0.0.6</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running -->
-                        <!-- Usage: mvn clean javafx:run -->
+                        <!-- Configuración para ejecutar -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.tuni.faltas.App</mainClass>
+                            <mainClass>com.tuni.faltas.MainApp</mainClass>
                         </configuration>
                     </execution>
                 </executions>
