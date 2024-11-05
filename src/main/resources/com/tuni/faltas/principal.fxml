@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuni.faltas.PrincipalController">
    <children>
       <Button fx:id="btnCursos" layoutX="252.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToCursos" prefHeight="25.0" prefWidth="95.0" text="Cursos" />
       <Button fx:id="btnAsignaturas" layoutX="252.0" layoutY="188.0" mnemonicParsing="false" onAction="#switchToAsignaturas" prefHeight="25.0" prefWidth="95.0" text="Asignaturas" />
