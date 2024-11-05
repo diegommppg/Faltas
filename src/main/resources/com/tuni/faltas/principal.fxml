@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuni.faltas.PrincipalController">
    <children>
       <RadioButton fx:id="radioButton1Hora" layoutX="62.0" layoutY="54.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="76.0" text="1 Hora">
@@ -26,6 +25,6 @@
       <Button fx:id="buttonConfi" layoutX="476.0" layoutY="286.0" mnemonicParsing="false" onAction="#irAConfig" text="Configuracion" />
       <ComboBox fx:id="comboBoxCurso" layoutX="394.0" layoutY="50.0" prefWidth="150.0" promptText="Curso" />
       <ComboBox fx:id="comboBoxAsig" layoutX="394.0" layoutY="157.0" prefWidth="150.0" promptText="Asignatura" />
-      <ListView layoutX="55.0" layoutY="157.0" prefHeight="200.0" prefWidth="150.0" />
+      <ListView fx:id="listView" layoutX="55.0" layoutY="157.0" prefHeight="200.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
