@@ -8,24 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuni.faltas.PrincipalController">
-   <children>
-      <RadioButton fx:id="radioButton1Hora" layoutX="47.0" layoutY="54.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="1 Hora">
-         <toggleGroup>
-            <ToggleGroup fx:id="Horas" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="radioButton2Horas" layoutX="47.0" layoutY="89.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" text="2 Horas" toggleGroup="$Horas" />
-      <RadioButton fx:id="radioButtonJusti" layoutX="180.0" layoutY="58.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="94.0" text="Justificada">
-         <toggleGroup>
-            <ToggleGroup fx:id="Justificion" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="radioButtonNoJusti" layoutX="180.0" layoutY="94.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="109.0" text="RadioButton" toggleGroup="$Justificion" />
-      <ComboBox fx:id="comboBoxCurso" layoutX="388.0" layoutY="54.0" prefWidth="150.0" promptText="Curso" />
-      <ComboBox fx:id="comboBoxAsig" layoutX="388.0" layoutY="175.0" prefWidth="150.0" promptText="Asignatura" />
-      <Button fx:id="buttonPoner" layoutX="235.0" layoutY="301.0" mnemonicParsing="false" text="Poner Falta" />
-      <Button fx:id="buttonConfi" layoutX="437.0" layoutY="301.0" mnemonicParsing="false" text="Configuracion" />
-      <ListView layoutX="14.0" layoutY="152.0" prefHeight="225.0" prefWidth="180.0" />
-   </children>
+   
 </AnchorPane>
