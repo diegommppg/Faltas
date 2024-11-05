@@ -44,7 +44,7 @@ public class PrincipalController {
 	
 	@FXML
 	public void irAConfig() throws IOException{
-		App.setRoot("configuracion");
+		MainApp.setRoot("configuracion");
 	}
 	
 	

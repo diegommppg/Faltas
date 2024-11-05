@@ -20,16 +20,7 @@
             <artifactId>javafx-fxml</artifactId>
             <version>13</version>
         </dependency>
-        <dependency>
-        	<groupId>com.samuel</groupId>
-        	<artifactId>Ejercicio_DesinT2</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-        	<groupId>com.samuel</groupId>
-        	<artifactId>PrimerProyectoMaven_DesinT2</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        </dependency>
+        
     </dependencies>
 	
     <build>
