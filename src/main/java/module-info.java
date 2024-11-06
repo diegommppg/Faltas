@@ -1,8 +1,7 @@
-module com.tuni.faltas {
+module iuyt.test {
     requires javafx.controls;
     requires javafx.fxml;
-	requires com.samuel.PrimerProyectoMaven_DesinT2;
 
-    opens com.tuni.faltas to javafx.fxml;
-    exports com.tuni.faltas;
+    opens iuyt.test to javafx.fxml;
+    exports iuyt.test;
 }
