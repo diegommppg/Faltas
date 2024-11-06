@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -47,12 +49,19 @@ public class InterfazCursos implements Initializable {
 
 	@FXML
 	//Metodo para eliminar cursos
+	
     private void eliminarCurso() {
         String cursoSeleccionado = comboCurso.getValue();
         if (cursoSeleccionado != null) {
             comboCurso.getItems().remove(cursoSeleccionado);
             textNombre.clear();
             System.out.println("Curso eliminado: " + cursoSeleccionado);
+        } else {
+        	Alert a = new Alert(AlertType.WARNING);
+			a.setTitle("Error");
+			a.setHeaderText("No Se puede borrar la asignatura");
+			a.setContentText("Hay que selccionar una asignatura");
+			a.show(); 
         }
     }
 	
