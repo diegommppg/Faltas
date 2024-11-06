@@ -2,7 +2,7 @@ package com.tuni.faltas;
 
 import java.io.IOException;
 
-import com.samuel.PrimerProyectoMaven_DesinT2.App;
+//import com.samuel.PrimerProyectoMaven_DesinT2.App;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

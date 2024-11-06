@@ -7,30 +7,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuni.faltas.AsignaturasController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuni.faltas.AsignaturasController">
    <children>
-      <Label fx:id="labelNombre" layoutX="110.0" layoutY="45.0" text="NOMBRE">
+      <Label fx:id="labelNombre" layoutX="80.0" layoutY="30.0" text="NOMBRE">
          <font>
-            <Font size="20.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="textEditNombre" layoutX="250.0" layoutY="45.0" prefWidth="260.0" />
+      <TextField fx:id="textEditNombre" layoutX="200.0" layoutY="30.0" prefWidth="200.0" />
       
-      <Label fx:id="labelHoras" layoutX="110.0" layoutY="115.0" text="HORAS">
+      <Label fx:id="labelHoras" layoutX="80.0" layoutY="80.0" text="HORAS">
          <font>
-            <Font size="20.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="textEditHoras" layoutX="250.0" layoutY="115.0" prefWidth="260.0" />
+      <TextField fx:id="textEditHoras" layoutX="200.0" layoutY="80.0" prefWidth="200.0" />
 
-      <ComboBox fx:id="comboBoxCursos" layoutX="560.0" layoutY="45.0" onAction="#comboBoxCurso" prefWidth="185.0" promptText="Seleccionar Curso" />
+      <ComboBox fx:id="comboBoxCursos" layoutX="440.0" layoutY="30.0" onAction="#comboBoxCurso" prefWidth="150.0" promptText="Curso" />
       
-      <ComboBox fx:id="comboBoxAsignaturas" layoutX="560.0" layoutY="115.0" onAction="#comboBoxAsignatura" prefWidth="185.0" promptText="Seleccionar Asignatura" />
+      <ComboBox fx:id="comboBoxAsignaturas" layoutX="440.0" layoutY="80.0" onAction="#comboBoxAsignaturas" prefWidth="150.0" promptText="Asignatura" />
 
-      <Button fx:id="buttonEliminarAsignatura" layoutX="110.0" layoutY="415.0" mnemonicParsing="false" onAction="#botonEliminarAsignatura" prefHeight="52.0" prefWidth="165.0" text="Eliminar Asignatura" />
+      <Button fx:id="buttonEliminarAsignatura" layoutX="80.0" layoutY="350.0" mnemonicParsing="false" onAction="#botonEliminarAsignatura" prefHeight="40.0" prefWidth="140.0" text="Eliminar Asignatura" />
 
-      <Button fx:id="buttonAñadirAlumno" layoutX="335.0" layoutY="415.0" mnemonicParsing="false" onAction="#botonAnadirAlumno" prefHeight="52.0" prefWidth="165.0" text="Añadir Alumno" />
+      <Button fx:id="buttonAñadirAlumno" layoutX="280.0" layoutY="350.0" mnemonicParsing="false" onAction="#botonAnadirAlumno" prefHeight="40.0" prefWidth="140.0" text="Añadir Alumno" />
 
-      <Button fx:id="buttonGuardarCambios" layoutX="560.0" layoutY="415.0" mnemonicParsing="false" onAction="#botonGuardarCambios" prefHeight="52.0" prefWidth="165.0" text="Guardar Cambios" />
+      <Button fx:id="buttonGuardarCambios" layoutX="480.0" layoutY="350.0" mnemonicParsing="false" onAction="#botonGuardarCambios" prefHeight="40.0" prefWidth="140.0" text="Guardar Cambios" />
    </children>
 </AnchorPane>
