@@ -29,15 +29,15 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label fx:id="NombreLabel" prefHeight="18.0" prefWidth="105.0" text="Nombre" GridPane.rowIndex="1" />
-                <Label fx:id="ApellidosLabel" prefHeight="18.0" prefWidth="105.0" text="Apellidos" GridPane.rowIndex="2" />
-                <Label fx:id="FaltasLabel" prefHeight="18.0" prefWidth="105.0" text="Faltas" GridPane.rowIndex="3" />
+                <Label fx:id="NombreLabel" prefHeight="18.0" prefWidth="105.0" text="Nombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="ApellidosLabel" prefHeight="18.0" prefWidth="105.0" text="Apellidos" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="FaltasLabel" prefHeight="18.0" prefWidth="105.0" text="Faltas" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <TextField fx:id="NombreTextField" prefHeight="26.0" prefWidth="138.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                 <TextField fx:id="ApellidosTextField" prefHeight="26.0" prefWidth="138.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 <TextField fx:id="FaltasTextField" prefHeight="26.0" prefWidth="138.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                <ComboBox fx:id="CursosComboBox" onAction="#mostrarAsignaturas" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                <ComboBox fx:id="AsignaturasComboBox" onAction="#mostrarAlumnos" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                <ComboBox fx:id="AlumnosComboBox" onAction="#mostrarDatosAlumno" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                <ComboBox fx:id="CursosComboBox" onAction="#mostrarAsignaturas" prefWidth="150.0" promptText="Cursos" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                <ComboBox fx:id="AsignaturasComboBox" onAction="#mostrarAlumnos" prefWidth="150.0" promptText="Asignaturas" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                <ComboBox fx:id="AlumnosComboBox" onAction="#mostrarDatosAlumno" prefWidth="150.0" promptText="alumnos" GridPane.columnIndex="4" GridPane.rowIndex="3" />
                 <Button fx:id="EliminarAlumnoButton" mnemonicParsing="false" onAction="#eliminar" prefHeight="26.0" prefWidth="138.0" text="Eliminar Alumno" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                 <Button fx:id="GuardarCambiosButton" mnemonicParsing="false" onAction="#GuardarCambios" prefHeight="26.0" prefWidth="146.0" text="Guardar Cambios" GridPane.columnIndex="4" GridPane.rowIndex="5" />
             </children>
