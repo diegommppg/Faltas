@@ -29,9 +29,9 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label fx:id="NombreLabel" prefHeight="18.0" prefWidth="105.0" text="Nombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Label fx:id="ApellidosLabel" prefHeight="18.0" prefWidth="105.0" text="Apellidos" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Label fx:id="FaltasLabel" prefHeight="18.0" prefWidth="105.0" text="Faltas" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label fx:id="NombreLabel" prefHeight="18.0" prefWidth="105.0" text="Nombre" GridPane.rowIndex="1" />
+                <Label fx:id="ApellidosLabel" prefHeight="18.0" prefWidth="105.0" text="Apellidos" GridPane.rowIndex="2" />
+                <Label fx:id="FaltasLabel" prefHeight="18.0" prefWidth="105.0" text="Faltas" GridPane.rowIndex="3" />
                 <TextField fx:id="NombreTextField" prefHeight="26.0" prefWidth="138.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                 <TextField fx:id="ApellidosTextField" prefHeight="26.0" prefWidth="138.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 <TextField fx:id="FaltasTextField" prefHeight="26.0" prefWidth="138.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
