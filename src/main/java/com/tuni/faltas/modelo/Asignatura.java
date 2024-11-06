@@ -1,37 +1,32 @@
 package com.tuni.faltas.modelo;
 
-import java.util.ArrayList;
-
 public class Asignatura {
-	String nombre;
-	
-	int horasTotales;
-	
-	ArrayList<Alumno> alumnos;
+    private String nombre;
+    private int horasTotales;
 
-	public Asignatura(String nombre, int horasTotales) {
-		super();
-		this.nombre = nombre;
-		this.horasTotales = horasTotales;
-		this.alumnos = alumnos;
-	}
+    public Asignatura(String nombre, int horasTotales) {
+        this.nombre = nombre;
+        this.horasTotales = horasTotales;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public int getHorasTotales() {
-		return horasTotales;
-	}
+    public int getHorasTotales() {
+        return horasTotales;
+    }
 
-	public void setHorasTotales(int horasTotales) {
-		this.horasTotales = horasTotales;
-	}
-	
-	
-
+    public void setHorasTotales(int horasTotales) {
+        this.horasTotales = horasTotales;
+    }
+    
+    @Override
+    public String toString() {
+        return nombre; 
+    }
 }
