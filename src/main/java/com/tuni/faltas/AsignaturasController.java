@@ -46,7 +46,7 @@ public class AsignaturasController implements Initializable {
 	ObservableList<Curso> cursos = FXCollections.observableArrayList();
 
 	public void initialize(URL location, ResourceBundle resources) {
-		// Para comprobar el funcionamiento
+		// Para comprobar el funcionamiento.
 		/*
 		 * // crear objeto de tipo asignatura Asignatura pmdm = new Asignatura("PMDM",
 		 * 30); Asignatura desin = new Asignatura("DESIN", 50); Asignatura badat = new
