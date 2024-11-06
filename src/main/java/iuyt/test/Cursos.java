@@ -14,23 +14,28 @@ import javafx.scene.control.TextField;
 
 public class Cursos implements Initializable {
 	
+	//boton para eliminar un curso
 	@FXML
 	Button buttonEliminarCurso;
 	
+	//boton para añadir una asignatura
 	@FXML
 	Button buttonAniadirCurso;
 	
+	//boton para guardar los cambios
 	@FXML
 	Button buttonGuardarCambios;
 	
+	//texto para el nombre del curso
 	@FXML 
 	TextField textFieldNombre;
 	
+	//ComboBox para seleccionar cursos
 	@FXML
 	ComboBox<String> comboBoxCursos;
 	
 	
-	
+	//metodo para cambia la vista a "Asignatura"
 	@FXML
 	private void aniadirAsignatura() {
         try {
@@ -40,12 +45,14 @@ public class Cursos implements Initializable {
         }
     }
 	
+	
+	//metodo para eliminar curso
 	@FXML
 	private void eliminarCurso() {
 		if(comboBoxCursos.getItems().contains(textFieldNombre.getText())) {
-			comboBoxCursos.getItems().remove(textFieldNombre.getText());
+			comboBoxCursos.getItems().remove(textFieldNombre.getText());//elimina el curso del ComboBox si existe
 		}
-		textFieldNombre.clear();
+		textFieldNombre.clear();//limpia el campo de texto
 	}
 	
 	@FXML
@@ -56,9 +63,9 @@ public class Cursos implements Initializable {
 		if(!nombre.isEmpty()) {
 			if(seleccion!=null) {
 				int index = comboBoxCursos.getItems().indexOf(seleccion);
-				comboBoxCursos.getItems().set(index, nombre);
+				comboBoxCursos.getItems().set(index, nombre);//actualiza el nombre del curso seleccionado
 			}else {
-				comboBoxCursos.getItems().add(nombre);
+				comboBoxCursos.getItems().add(nombre);//añade un nuevo curso si no hay ninguno seleccionado
 			}
 		}
 		textFieldNombre.clear();
@@ -69,7 +76,7 @@ public class Cursos implements Initializable {
 	private void recibirCurso() {
 		String nombre = textFieldNombre.getText();
 		if(nombre!=null) {
-			comboBoxCursos.getItems().add(nombre);
+			comboBoxCursos.getItems().add(nombre);//añade el curso al ComboBox
 			textFieldNombre.clear();
 		}
 	}
@@ -77,6 +84,7 @@ public class Cursos implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		//eleemntos por defecto añadidos al combobox
 		comboBoxCursos.getItems().addAll("Curso 1", "Curso 2", "Curso 3");
 		
 		//añadir botones
