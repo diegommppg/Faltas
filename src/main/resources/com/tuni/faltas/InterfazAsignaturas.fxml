@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tuni.faltas.AsignaturasController">
+   <children>
+      <Label fx:id="labelNombre" layoutX="100.0" layoutY="50.0" text="NOMBRE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textEditNombre" layoutX="240.0" layoutY="50.0" prefWidth="250.0" />
+      <Label fx:id="labelHoras" layoutX="100.0" layoutY="120.0" text="HORAS">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textEditHoras" layoutX="240.0" layoutY="120.0" 
+      prefWidth="250.0" />
+      <ComboBox fx:id="comboBoxCursos" layoutX="550.0" layoutY="50.0" 
+      onAction="#comboBoxCurso" prefWidth="180.0" promptText="Seleccionar Curso" />
+      
+      <ComboBox fx:id="comboBoxAsignaturas" layoutX="550.0" layoutY="120.0" 
+      onAction="#comboBoxAsignatura" prefWidth="180.0" promptText="Seleccionar Asignatura" />
+      
+      <Button fx:id="buttonEliminarAsignatura" layoutX="100.0" layoutY="400.0" mnemonicParsing="false" 
+      onAction="#botonEliminarAsignatura" prefHeight="48.0" prefWidth="160.0" text="Eliminar Asignatura" />
+      
+      <Button fx:id="buttonAñadirAlumno" layoutX="320.0" layoutY="400.0" mnemonicParsing="false" 
+      onAction="#botonAnadirAlumno" prefHeight="48.0" prefWidth="160.0" text="Añadir Alumno" />
+      
+      <Button fx:id="buttonGuardarCambios" layoutX="540.0" layoutY="400.0" mnemonicParsing="false" 
+      onAction="#botonGuardarCambios" prefHeight="48.0" prefWidth="160.0" text="Guardar Cambios" />
+   </children>
+</AnchorPane>
