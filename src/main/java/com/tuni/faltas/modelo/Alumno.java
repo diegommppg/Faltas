@@ -1,37 +1,41 @@
 package com.tuni.faltas.modelo;
 
 import java.util.ArrayList;
- 
+import java.util.List;
+
 public class Alumno {
-	String nombre;
-	String apellidos;
+	private String nombre;
+	private List<Object> faltas;
 
-	private ArrayList<Falta> faltas;
-
-	public Alumno(String nombre, String apellidos, ArrayList<Falta> faltas) {
-		super();
+	public Alumno(String nombre) {
 		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.faltas = faltas;
+		this.faltas = new ArrayList<>().reversed();
 	}
-	
+
+	// Métodos getters y setters
 	public String getNombre() {
 		return nombre;
 	}
-	
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	public String getApellidos() {
-		return apellidos;
-	}
-	
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-	
-	public ArrayList<Falta> getFaltas() {
+
+	public List<Object> getFaltas() {
 		return faltas;
+	}
+
+	public void setFaltas(List<Object> faltas) {
+		this.faltas = faltas;
+	}
+
+	// Método para agregar una falta
+	public void agregarFalta(Object falta) {
+		faltas.add(falta);
+	}
+
+	// Método para contar el total de faltas
+	public int contarFaltas() {
+		return faltas.size();
 	}
 }

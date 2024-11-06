@@ -1,36 +1,36 @@
 package com.tuni.faltas.modelo;
 
+import java.time.LocalDate;
+
 public class Falta {
-	boolean justificada;
-	
-	int horas;
-	
-	String asignatura;
-	
-	public Falta(boolean justificada, int horas, String asignatura) {
-		super();
-		this.justificada = justificada;
-		this.horas = horas;
-		this.asignatura = asignatura;
+	private LocalDate fecha;
+	private String motivo;
+
+	public Falta(LocalDate fecha, String motivo) {
+		this.fecha = fecha;
+		this.motivo = motivo;
 	}
-	
-	public String getAsignatura() {
-		return asignatura;
+
+	// Métodos getters y setters
+	public LocalDate getFecha() {
+		return fecha;
 	}
-	public void setAsignatura(String asignatura) {
-		this.asignatura = asignatura;
+
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
 	}
-	
-	public boolean isJustificada() {
-		return justificada;
+
+	public String getMotivo() {
+		return motivo;
 	}
-	public void setJustificada(boolean justificada) {
-		this.justificada = justificada;
+
+	public void setMotivo(String motivo) {
+		this.motivo = motivo;
 	}
-	public int getHoras() {
-		return horas;
-	}
-	public void setHoras(int horas) {
-		this.horas = horas;
+
+	// Método para representar la falta en un formato de texto
+	@Override
+	public String toString() {
+		return "Fecha: " + fecha + ", Motivo: " + motivo;
 	}
 }

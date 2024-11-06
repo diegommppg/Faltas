@@ -1,21 +1,18 @@
 package com.tuni.faltas.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Asignatura {
-	String nombre;
-	
-	int horasTotales;
-	
-	ArrayList<Alumno> alumnos;
+	private String nombre;
+	private List<Alumno> alumnos;
 
-	public Asignatura(String nombre, int horasTotales, ArrayList<Alumno> alumnos) {
-		super();
+	public Asignatura(String nombre) {
 		this.nombre = nombre;
-		this.horasTotales = horasTotales;
-		this.alumnos = alumnos;
+		this.alumnos = new ArrayList<>();
 	}
 
+	// Métodos getters y setters
 	public String getNombre() {
 		return nombre;
 	}
@@ -24,22 +21,28 @@ public class Asignatura {
 		this.nombre = nombre;
 	}
 
-	public int getHorasTotales() {
-		return horasTotales;
-	}
-
-	public void setHorasTotales(int horasTotales) {
-		this.horasTotales = horasTotales;
-	}
-
-	public ArrayList<Alumno> getAlumnos() {
+	public List<Alumno> getAlumnos() {
 		return alumnos;
 	}
 
-	public void setAlumnos(ArrayList<Alumno> alumnos) {
+	public void setAlumnos(List<Alumno> alumnos) {
 		this.alumnos = alumnos;
 	}
-	
-	
 
+	// Método para agregar alumnos
+	public void agregarAlumno(Alumno alumno) {
+		if (!alumnos.contains(alumno)) {
+			alumnos.add(alumno);
+		}
+	}
+
+	// Método para buscar un alumno por nombre
+	public Alumno buscarAlumno(String nombre) {
+		for (Alumno alumno : alumnos) {
+			if (alumno.getNombre().equalsIgnoreCase(nombre)) {
+				return alumno;
+			}
+		}
+		return null; // No se encontró el alumno
+	}
 }
