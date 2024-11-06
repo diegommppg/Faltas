@@ -1,30 +1,28 @@
 package com.tuni.faltas.modelo;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
+ 
+import java.util.ArrayList;
+ 
 public class Curso {
-    private String nombre;
-    private ObservableList<Asignatura> asignaturas; // Cambiado a ObservableList
-
-    public Curso(String nombre, ObservableList<Asignatura> asignaturas) {
+    String nombre;
+   
+    ArrayList<Asignatura> asignaturas;
+   
+    public Curso(String nombre, ArrayList<Asignatura> asignaturas) {
+        super();
         this.nombre = nombre;
         this.asignaturas = asignaturas;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public ObservableList<Asignatura> getAsignaturas() {
+    public ArrayList<Asignatura> getAsignaturas() {
         return asignaturas;
     }
-
-    public void setAsignaturas(ObservableList<Asignatura> asignaturas) {
+    public void setAsignaturas(ArrayList<Asignatura> asignaturas) {
         this.asignaturas = asignaturas;
     }
+   
 }
