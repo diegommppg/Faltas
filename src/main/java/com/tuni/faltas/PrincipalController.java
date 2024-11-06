@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -33,19 +34,51 @@ public class PrincipalController implements Initializable {
 	@FXML
 	private TextField tfFaltas;
 
+	private ObservableList<String> asigPrimeroDam = FXCollections.observableArrayList();
+	private ObservableList<String> asigSegundoDam = FXCollections.observableArrayList();
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		cbCursos.getItems().addAll("1ºDAM", "1ºDAW", "2ºDAM", "2ºDAW");
+		asigPrimeroDam.add("PROG");
+		asigPrimeroDam.add("LSGMI");
+		asigPrimeroDam.add("SISIN");
+		asigPrimeroDam.add("BADAT");
+		asigPrimeroDam.add("FOL");
+		asigPrimeroDam.add("ENDES");
+
+		asigSegundoDam.add("DESIN");
+		asigSegundoDam.add("PMDM");
+		asigSegundoDam.add("SGEM");
+		asigSegundoDam.add("ADT");
+		asigSegundoDam.add("EIE");
+
+		cbCursos.getItems().addAll("1ºDAM", "2ºDAM");
 		cbCursos.setValue(cbCursos.getItems().get(0));
-		cbAsignaturas.getItems().addAll("DESIN", "PMDM", "SGEM", "ADT", "EIE", "PDAM");
+		cbAsignaturas.setItems(asigPrimeroDam);
 		cbAsignaturas.setValue(cbAsignaturas.getItems().get(0));
 
-		alumnos.add(new Alumno("Rodrigo", "Cid Colino", 4));
-		alumnos.add(new Alumno("Otro", "Alumno Anonimo", 7));
+		alumnos.add(new Alumno("Rodrigo", "Cid Colino", 4, "2ºDAM"));
+		alumnos.add(new Alumno("Otro", "Alumno Anonimo", 7, "1ºDAM"));
 
-		cbAlumnos.setItems(alumnos);
+		cbAlumnos.setItems(filtrarAlumno(cbCursos.getValue()));
 
+	}
+
+	public ObservableList<Alumno> filtrarAlumno(String curso) {
+
+		ObservableList<Alumno> alumnosTemporal = FXCollections.observableArrayList();
+
+		for (Alumno a : alumnos) {
+
+			if (a.getCurso().equals(curso)) {
+
+				alumnosTemporal.add(a);
+			}
+
+		}
+
+		return alumnosTemporal;
 	}
 
 	@FXML
@@ -53,43 +86,38 @@ public class PrincipalController implements Initializable {
 
 		Alumno alumnoSeleccionado = cbAlumnos.getValue();
 
-		for (Alumno alu : alumnos) {
+		if (alumnoSeleccionado != null) {
+			Alumno a = buscarAlumno(alumnoSeleccionado.getNombre(), alumnoSeleccionado.getApellidos());
 
-			if (alu.equals(alumnoSeleccionado)) {
+			if (a != null) {
 
-				tfNombre.setText(alu.getNombre());
-				tfApellidos.setText(alu.getApellidos());
-				tfFaltas.setText(String.valueOf(alu.getFaltas()));
+				tfNombre.setText(a.getNombre());
+				tfApellidos.setText(a.getApellidos());
+				tfFaltas.setText(String.valueOf(a.getFaltasAsignaturas().get(cbAsignaturas.getValue())));
+
 			}
 		}
-
 	}
 
 	@FXML
 	public void guardar() {
 
-		// String nombreSeleccionado = cbAlumnos.getValue();
+		Alumno a = buscarAlumno(tfNombre.getText(), tfApellidos.getText());
+		if (a != null) {
 
-		Alumno a = new Alumno(tfNombre.getText(), tfApellidos.getText(), Integer.parseInt(tfFaltas.getText()));
-		if (checkExiste(a)) {
-
-			for (Alumno alu : alumnos) {
-
-				if (alu.getNombre().equals(a.getNombre())) {
-
-					alu.setFaltas(Integer.parseInt(tfFaltas.getText()));
-
-				}
-			}
+			a.getFaltasAsignaturas().put(cbAsignaturas.getValue(), Integer.parseInt(tfFaltas.getText()));
 
 		}
 
 		else {
 
-			Alumno nuevoAlumno = new Alumno(tfNombre.getText(), tfApellidos.getText(),
-					Integer.parseInt(tfFaltas.getText()));
-			alumnos.add(nuevoAlumno);
+			Alumno newAlum = new Alumno(tfNombre.getText(), tfApellidos.getText(), 1, cbCursos.getValue());
 
+			newAlum.getFaltasAsignaturas().put(cbAsignaturas.getValue(), Integer.parseInt(tfFaltas.getText()));
+			alumnos.add(newAlum);
+			cbAlumnos.setItems(filtrarAlumno(cbCursos.getValue()));
+
+			updatear();
 		}
 
 	}
@@ -97,55 +125,81 @@ public class PrincipalController implements Initializable {
 	@FXML
 	public void borrar() {
 
-		Alumno a = new Alumno(tfNombre.getText(), tfApellidos.getText(), Integer.parseInt(tfFaltas.getText()));
-		if (checkExiste(a)) {
+		Alumno a = buscarAlumno(tfNombre.getText(), tfApellidos.getText());
+		if (a != null) {
 
-			for (Alumno alu : alumnos) {
-
-				if (alu.getNombre().equals(a.getNombre())) {
-
-					alumnos.remove(alu);
-
-					if (!alumnos.isEmpty()) {
-						tfNombre.setText(alumnos.get(0).getNombre());
-						tfApellidos.setText(alumnos.get(0).getApellidos());
-						tfFaltas.setText(String.valueOf(alumnos.get(0).getFaltas()));
-					} else {
-
-						tfNombre.setText("");
-						tfApellidos.setText("");
-						tfFaltas.setText("");
-
-					}
-
-				}
-			}
-
-		}
-
-		else {
+			alumnos.remove(a);
 
 			tfNombre.setText("");
 			tfApellidos.setText("");
 			tfFaltas.setText("");
 
+			cbAlumnos.setItems(filtrarAlumno(cbCursos.getValue()));
 		}
-
 	}
 
 	private boolean checkExiste(Alumno a) {
 
-		boolean existe = false;
+		return alumnos.contains(a);
+	}
 
-		for (Alumno alu : alumnos) {
+	private Alumno buscarAlumno(String nombre, String apellidos) {
 
-			if ((a.getNombre().equals(alu.getNombre())) && (a.getApellidos().equals(alu.getApellidos()))) {
-
-				existe = true;
+		for (Alumno alumno : alumnos) {
+			if (alumno.getNombre().equals(nombre) && alumno.getApellidos().equals(apellidos)) {
+				return alumno;
 			}
 		}
+		return null;
+	}
 
-		return existe;
+	@FXML
+	private void cambiarCurso() {
+
+		if (cbCursos.getValue().equals("1ºDAM")) {
+
+			cbAsignaturas.setItems(asigPrimeroDam);
+			cbAsignaturas.setValue(cbAsignaturas.getItems().get(0));
+
+		}
+
+		if (cbCursos.getValue().equals("2ºDAM")) {
+
+			cbAsignaturas.setItems(asigSegundoDam);
+			cbAsignaturas.setValue(cbAsignaturas.getItems().get(0));
+
+		}
+
+		cbAlumnos.setItems(filtrarAlumno(cbCursos.getValue()));
+
+		updatear();
+	}
+
+	@FXML
+	public void cambiarAsignatura() {
+
+		updatear();
+
+	}
+
+	private void updatear() {
+
+		Alumno a = cbAlumnos.getValue();
+
+		if (a != null) {
+			tfNombre.setText(a.getNombre());
+			tfApellidos.setText(a.getApellidos());
+			tfFaltas.setText(String.valueOf(a.getFaltasAsignaturas().get(cbAsignaturas.getValue())));
+		}
+		
+		else {
+			
+			tfNombre.setText("");
+			tfApellidos.setText("");
+			tfFaltas.setText("");
+			
+		}
+
 	}
 
 }
