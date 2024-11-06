@@ -23,8 +23,8 @@
       </Label>
       <TextField fx:id="inputDuracionHoras" layoutX="240.0" layoutY="110.0" />
 
-      <ComboBox fx:id="cmbxCursos" layoutX="550.0" layoutY="50.0" onAction="#seleccionCurso" prefWidth="150.0" />
-      <ComboBox fx:id="cmbxAsignaturas" layoutX="550.0" layoutY="110.0" onAction="#seleccionAsignatura" prefWidth="150.0" />
+      <ComboBox fx:id="cmbxCursos" layoutX="550.0" layoutY="50.0" onAction="#seleccionCurso" prefWidth="150.0" promptText="CURSOS" />
+      <ComboBox fx:id="cmbxAsignaturas" layoutX="550.0" layoutY="110.0" onAction="#seleccionAsignatura" prefWidth="150.0" promptText="ASIGNATURAS" />
 
       <Button fx:id="btnQuitarAsignatura" layoutX="115.0" layoutY="350.0" mnemonicParsing="false" onAction="#quitarAsignatura" prefHeight="48.0" prefWidth="135.0" text="Eliminar Asignatura" />
       <Button fx:id="btnAgregarEstudiante" layoutX="325.0" layoutY="350.0" mnemonicParsing="false" onAction="#agregarAlumno" prefHeight="48.0" prefWidth="135.0" text="Añadir Alumno" />
